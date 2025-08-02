@@ -102,23 +102,26 @@ export default function RoastMeAI() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style={{ paddingTop: "6rem" }} // Force 96px padding on all devices
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-pink-500/10 dark:from-purple-900/20 dark:via-blue-900/20 dark:to-pink-900/20"></div>
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent block mb-2">
                 Let Your Habits
               </span>
-              <br />
-              <span className="text-foreground">Roast You.</span>
+              <span className="text-foreground block">Roast You.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4">
               Download RoastMe.AI and get brutally honest feedback on how you spend your digital life.
             </p>
             <motion.div
@@ -128,25 +131,25 @@ export default function RoastMeAI() {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-foreground px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 onClick={() => scrollToSection("download")}
               >
-                <Download className="mr-2 h-5 w-5" />
+                <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Download APK
               </Button>
             </motion.div>
           </motion.div>
 
           <motion.div
-            className="mt-16"
+            className="mt-12 sm:mt-16"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="relative mx-auto w-64 h-96 bg-gradient-to-b from-muted to-muted-foreground/20 rounded-3xl p-2 shadow-2xl">
+            <div className="relative mx-auto w-48 h-72 sm:w-64 sm:h-96 bg-gradient-to-b from-muted to-muted-foreground/20 rounded-3xl p-2 shadow-2xl">
               <div className="w-full h-full bg-card rounded-2xl flex items-center justify-center">
                 <div className="text-center">
-                  <Smartphone className="h-16 w-16 text-pink-400 mx-auto mb-4" />
+                  <Smartphone className="h-12 w-12 sm:h-16 sm:w-16 text-pink-400 mx-auto mb-4" />
                   <p className="text-sm text-muted-foreground">RoastMe.AI</p>
                   <p className="text-xs text-muted-foreground/70 mt-2">App Preview</p>
                 </div>
@@ -155,7 +158,7 @@ export default function RoastMeAI() {
           </motion.div>
 
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
           >
@@ -174,18 +177,18 @@ export default function RoastMeAI() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
                 How It Works
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               We analyze your digital habits and serve you the roasts you deserve
             </p>
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-3 gap-8"
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -193,19 +196,19 @@ export default function RoastMeAI() {
           >
             {[
               {
-                icon: <Smartphone className="h-12 w-12" />,
+                icon: <Smartphone className="h-10 w-10 sm:h-12 sm:w-12" />,
                 title: "Screen Time Addict",
                 description: "Your phone knows you better than your family does",
                 emoji: "📱",
               },
               {
-                icon: <Eye className="h-12 w-12" />,
+                icon: <Eye className="h-10 w-10 sm:h-12 sm:w-12" />,
                 title: "Doomscroll Master",
                 description: "Professional at turning 5 minutes into 5 hours",
                 emoji: "👁️",
               },
               {
-                icon: <Moon className="h-12 w-12" />,
+                icon: <Moon className="h-10 w-10 sm:h-12 sm:w-12" />,
                 title: "Night Owl Syndrome",
                 description: "Sleep schedule? What's that?",
                 emoji: "🦉",
@@ -213,11 +216,11 @@ export default function RoastMeAI() {
             ].map((habit, index) => (
               <motion.div key={index} variants={fadeInUp}>
                 <Card className="bg-card border-border hover:border-pink-500/50 transition-all duration-300 transform hover:scale-105">
-                  <CardContent className="p-8 text-center">
-                    <div className="text-4xl mb-4">{habit.emoji}</div>
+                  <CardContent className="p-6 sm:p-8 text-center">
+                    <div className="text-3xl sm:text-4xl mb-4">{habit.emoji}</div>
                     <div className="text-pink-400 mb-4">{habit.icon}</div>
-                    <h3 className="text-xl font-bold mb-3 text-foreground">{habit.title}</h3>
-                    <p className="text-muted-foreground">{habit.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold mb-3 text-foreground">{habit.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground">{habit.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -236,18 +239,18 @@ export default function RoastMeAI() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
                 Sample Roasts
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               Here's what our AI thinks about your digital lifestyle
             </p>
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-3 gap-8"
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -262,10 +265,10 @@ export default function RoastMeAI() {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.05 }}
-                className="bg-card border border-border hover:border-pink-500/50 transition-all duration-300 p-8 rounded-2xl"
+                className="bg-card border border-border hover:border-pink-500/50 transition-all duration-300 p-6 sm:p-8 rounded-2xl"
               >
-                <div className="text-6xl mb-4">🔥</div>
-                <p className="text-lg text-foreground italic leading-relaxed">"{roast}"</p>
+                <div className="text-4xl sm:text-6xl mb-4">🔥</div>
+                <p className="text-base sm:text-lg text-foreground italic leading-relaxed">"{roast}"</p>
               </motion.div>
             ))}
           </motion.div>
@@ -281,24 +284,24 @@ export default function RoastMeAI() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
                 Ready to Get Roasted?
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8">
               Download the APK and let AI judge your digital life choices
             </p>
 
             <Button
               size="lg"
-              className="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-foreground px-12 py-6 text-xl font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-8"
+              className="bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-600 hover:to-blue-600 text-foreground px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-8"
             >
-              <Download className="mr-3 h-6 w-6" />
+              <Download className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
               Download APK
             </Button>
 
-            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground mb-8">
               <div className="flex items-center gap-2">
                 <Shield className="h-4 w-4 text-green-400" />
                 <span>Safe & Secure</span>
@@ -342,16 +345,16 @@ export default function RoastMeAI() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
                 Built by the Roast Squad
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground">Meet the team behind your digital reality check</p>
+            <p className="text-lg sm:text-xl text-muted-foreground">Meet the team behind your digital reality check</p>
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -375,10 +378,10 @@ export default function RoastMeAI() {
             ].map((member, index) => (
               <motion.div key={index} variants={fadeInUp} whileHover={{ scale: 1.05 }} className="text-center">
                 <Card className="bg-card border-border hover:border-pink-500/50 transition-all duration-300">
-                  <CardContent className="p-8">
+                  <CardContent className="p-6 sm:p-8">
                     {/* Profile Image with Role Icon Overlay */}
                     <div className="relative mb-6">
-                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-pink-500/20 hover:border-pink-500/50 transition-colors duration-300">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full overflow-hidden border-4 border-pink-500/20 hover:border-pink-500/50 transition-colors duration-300">
                         <img
                           src={member.image || "/placeholder.svg"}
                           alt={`${member.name} - ${member.role}`}
@@ -386,13 +389,13 @@ export default function RoastMeAI() {
                         />
                       </div>
                       {/* Role Icon Badge */}
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center text-lg shadow-lg">
+                      <div className="absolute -bottom-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center text-base sm:text-lg shadow-lg">
                         {member.avatar}
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-foreground mb-2">{member.name}</h3>
-                    <p className="text-pink-400 mb-4">{member.role}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">{member.name}</h3>
+                    <p className="text-pink-400 mb-4 text-sm sm:text-base">{member.role}</p>
                     <div className="flex justify-center gap-3">
                       <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
                         <Linkedin className="h-4 w-4" />
@@ -421,8 +424,10 @@ export default function RoastMeAI() {
                 <Linkedin className="h-5 w-5" />
               </Button>
             </div>
-            <p className="text-muted-foreground mb-2">Privacy-focused. No data collection. Just honest roasts.</p>
-            <p className="text-muted-foreground/70 flex items-center justify-center gap-2">
+            <p className="text-muted-foreground mb-2 text-sm sm:text-base">
+              Privacy-focused. No data collection. Just honest roasts.
+            </p>
+            <p className="text-muted-foreground/70 flex items-center justify-center gap-2 text-sm sm:text-base">
               Made with <Heart className="h-4 w-4 text-red-500" /> by RoastMe Team
             </p>
           </div>

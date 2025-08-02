@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 html {
   scroll-behavior: smooth;
 }
@@ -129,26 +131,33 @@ html {
   width: 8px;
 }
 
-::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+@media (prefers-color-scheme: light) {
+  ::-webkit-scrollbar-track {
+    background: #e5e7eb;
+  }
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #e5e7eb;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  background: linear-gradient(to bottom, #ec4899, #3b82f6);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #db2777, #7c3aed);
+  background: linear-gradient(to bottom, #db2777, #2563eb);
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Gradient text utilities */
 .gradient-text {
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -165,20 +174,54 @@ html {
   }
 }
 
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Hero section spacing fix for all devices - More aggressive approach */
+.hero-section {
+  padding-top: 7rem !important; /* 112px - Force with !important */
+  min-height: 100vh;
+}
+
+/* Mobile devices (up to 640px) */
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 8rem !important; /* 128px - Extra padding for small mobile screens */
   }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+/* Tablet devices (641px to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-section {
+    padding-top: 7.5rem !important; /* 120px - Medium padding for tablets */
+  }
+}
+
+/* Desktop devices (1025px and up) */
+@media (min-width: 1025px) {
+  .hero-section {
+    padding-top: 7rem !important; /* 112px - Standard padding for desktop */
+  }
+}
+
+/* Large desktop devices (1440px and up) */
+@media (min-width: 1440px) {
+  .hero-section {
+    padding-top: 6.5rem !important; /* 104px - Slightly less padding for large screens */
+  }
 }
